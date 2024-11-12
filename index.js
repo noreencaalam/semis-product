@@ -5,7 +5,7 @@ const app = express()
 const mysql =  require("mysql")
 const moment = require("moment")
 
-const PORT = process.env.PORT || 5001
+const PORT = process.env.PORT || 10000
 
 const logger = (req, res, next) => {
     console.log(`${req.protocol}://${req.get("host")}${req.originalUrl} : ${moment().format()}`)
@@ -30,7 +30,7 @@ app.put("/api/members", (req, res) => {
     const product_price = req.body.product_price;
     const id = req.body.id;
 
-    connection.query(`UPDATE userdata SET product_name='${product_name}', product_price='${product_price}',  WHERE id='${id}'`, (err, rows, fields) => {
+    connection.query(`UPDATE product SET product_name='${product_name}', product_price='${product_price}',  WHERE id='${id}'`, (err, rows, fields) => {
         if(err) throw err;
         res.json({msg: `Success`})
     })
