@@ -16,74 +16,26 @@ app.use(logger);
 
 
 const connection =  mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "employee",
+    host: "brjcgzfsoddavnxdvgmg-mysql.services.clever-cloud.com",
+    user: "ububnh7p6s5texzi",
+    password: "JA75q7foksPb3y1tFA6M",
+    database: "brjcgzfsoddavnxdvgmg",
 });
 
 connection.connect();
-/*
-//REPORT - CRUD
-app.get("/api/members", (req, res) => {
 
-    connection.query("SELECT * FROM userdata", (err, rows, fields) => {
-        if(err) throw err;
-        res.json(rows)
-
-    })
-})
-
-//REPORT - CRUD - SEARCH
-app.get("/api/members/:id", (req, res) => {
-    const id = req.params.id
-    //const first_name = req.params.first_name
-    //res.send(id)
-    //res.send(first_name)
-    connection.query(`SELECT * FROM userdata WHERE id = ${id}`, (err, rows, fields) => {
-        if(err) throw err;
-        if(rows.length > 0){
-            res.json(rows)
-        }else{
-            res.status(400).json({msg:`${id} id not found`})
-        }
-    })
-
-})
-
-//POST - CREATE - CRUD
-app.use(express.urlencoded({extended: false}))
-app.post("/api/members", (req, res) => {
-    const fname = req.body.fname;
-    const lname = req.body.lname;
-    const email = req.body.email;
-    const gender = req.body.gender;
-
-    connection.query(`INSERT INTO userdata (first_name, last_name, email, gender) VALUES ('${fname}', '${lname}', '${email}', '${gender}')`, (err, rows, fields) => {
-        if(err) throw err;
-        res.json({msg: `Successfully inserted`})
-    })
-
-})
-
-
-//POST - CREATE - CRUD
 app.use(express.urlencoded({extended: false}))
 app.put("/api/members", (req, res) => {
-    const fname = req.body.fname;
-    const lname = req.body.lname;
-    const email = req.body.email;
-    const gender = req.body.gender;
+    const product_name = req.body.product_name;
+    const product_price = req.body.product_price;
     const id = req.body.id;
 
-    connection.query(`UPDATE userdata SET first_name='${fname}', last_name='${lname}', email='${email}', gender='${gender}' WHERE id='${id}'`, (err, rows, fields) => {
+    connection.query(`UPDATE userdata SET product_name='${product_name}', product_price='${product_price}',  WHERE id='${id}'`, (err, rows, fields) => {
         if(err) throw err;
         res.json({msg: `Success`})
     })
 
 })
-    */
-
 // DELETE
 app.use(express.urlencoded({extended: false}))
 app.delete("/api/members", (req, res) => {
