@@ -31,7 +31,7 @@ app.put("/api/members", (req, res) => {
     const id = req.body.id;
 
     connection.query(`UPDATE product SET product_name='${product_name}', product_price='${product_price}',  WHERE id='${id}'`, (err, rows, fields) => {
-        if(err) throw err;
+        if(err) throw err
         res.json({msg: `Success`})
     })
 
@@ -42,7 +42,7 @@ app.delete("/api/members", (req, res) => {
 
     const id = req.body.id
     connection.query(`DELETE FROM product WHERE id = '${id}'`, (err, rows, fields) => {
-        if(err) throw err;
+        if(err) throw err
         res.json({msg: `Successfully yeeted`})
 
     })
